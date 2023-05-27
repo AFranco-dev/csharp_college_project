@@ -1,0 +1,69 @@
+﻿@model ProyectoHDP.Models.Empleados
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Empleados</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="iD" />
+            <div class="form-group">
+                <label asp-for="nombre" class="control-label"></label>
+                <input asp-for="nombre" class="form-control" />
+                <span asp-validation-for="nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tipoContrato" class="control-label"></label>
+                <input asp-for="tipoContrato" class="form-control" />
+                <span asp-validation-for="tipoContrato" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="pais" class="control-label"></label>
+                <input asp-for="pais" class="form-control" />
+                <span asp-validation-for="pais" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="empresa" class="control-label"></label>
+                <input asp-for="empresa" class="form-control" />
+                <span asp-validation-for="empresa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="salario" class="control-label"></label>
+                <input asp-for="salario" class="form-control" />
+                <span asp-validation-for="salario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fechaContrato" class="control-label"></label>
+                <input asp-for="fechaContrato" class="form-control" />
+                <span asp-validation-for="fechaContrato" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fechaRenuncia" class="control-label"></label>
+                <input asp-for="fechaRenuncia" class="form-control" />
+                <span asp-validation-for="fechaRenuncia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fechaEmision" class="control-label"></label>
+                <input asp-for="fechaEmision" class="form-control" />
+                <span asp-validation-for="fechaEmision" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

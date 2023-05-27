@@ -9,8 +9,8 @@
         public string empresa { get; set; } = string.Empty;
         public double salario { get; set; }
         public DateOnly fechaContrato { get; set; }
-        public DateOnly fechaRenuncia{ get; set; }
-        public DateOnly fechaEmision{ get; set; }
+        public DateOnly fechaRenuncia { get; set; }
+        public DateOnly fechaEmision { get; set; }
 
         public Empleados()
         {
