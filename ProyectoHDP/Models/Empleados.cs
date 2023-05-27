@@ -8,9 +8,10 @@
         public string pais { get; set; } = string.Empty;
         public string empresa { get; set; } = string.Empty;
         public double salario { get; set; }
-        public DateOnly fechaContrato { get; set; }
-        public DateOnly fechaRenuncia { get; set; }
-        public DateOnly fechaEmision { get; set; }
+        public DateTime fechaContrato { get; set; }
+        public DateTime fechaRenuncia { get; set; }
+        public DateTime fechaEmision { get; set; }
+        public int mesesTrabajo { get; set; }
 
         public Empleados()
         {
