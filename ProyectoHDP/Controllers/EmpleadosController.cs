@@ -26,6 +26,28 @@ namespace ProyectoHDP.Controllers
                           View(await _context.Empleados.ToListAsync()) :
                           Problem("Entity set 'ApplicationDbContext.Empleados'  is null.");
         }
+        // GET: Empleados/ShowBuscarYearForm
+        public async Task<IActionResult> ShowBuscarYearForm()
+        {
+            return View();
+        }
+        public async Task<IActionResult> ShowBuscarYearResults(DateTime SearchYear)
+        {
+            return _context.Empleados != null ?
+                          View("Index", await _context.Empleados.Where(x => x.fechaEmision.Year == SearchYear.Year).ToListAsync()) :
+                          Problem("Entity set 'ApplicationDbContext.Empleados'  is null.");
+        }
+        // GET: Empleados/ShowBuscarYearForm
+        public async Task<IActionResult> ShowBuscarEmpresaForm()
+        {
+            return View();
+        }
+        public async Task<IActionResult> ShowBuscarEmpresaResults(string SearchEmpresa)
+        {
+            return _context.Empleados != null ?
+                          View("Index", await _context.Empleados.Where(x => x.empresa.Contains(SearchEmpresa)).ToListAsync()) :
+                          Problem("Entity set 'ApplicationDbContext.Empleados'  is null.");
+        }
 
         // GET: Empleados/Details/5
         public async Task<IActionResult> Details(int? id)
