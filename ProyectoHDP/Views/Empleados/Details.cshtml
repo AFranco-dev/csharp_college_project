@@ -65,6 +65,11 @@
             @Html.DisplayFor(model => model.mesesTrabajo)
         </dd>
     </dl>
+    <div>
+        <form method="post" asp-action="DownloadTextFile" asp-route-id="@Model?.iD">
+            <button type="submit">Download Text File</button>
+        </form>
+    </div>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.iD">Edit</a> |

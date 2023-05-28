@@ -306,3 +306,16 @@ C:\Users\jafra\Documents\CURSOS_EXTRACURRICULARES\ProyectoHDP\ProyectoHDP\Proyec
 C:\Users\jafra\Documents\CURSOS_EXTRACURRICULARES\ProyectoHDP\ProyectoHDP\ProyectoHDP\obj\Debug\net6.0\ProyectoHDP.pdb
 C:\Users\jafra\Documents\CURSOS_EXTRACURRICULARES\ProyectoHDP\ProyectoHDP\ProyectoHDP\obj\Debug\net6.0\ProyectoHDP.genruntimeconfig.cache
 C:\Users\jafra\Documents\CURSOS_EXTRACURRICULARES\ProyectoHDP\ProyectoHDP\ProyectoHDP\obj\Debug\net6.0\ref\ProyectoHDP.dll
+C:\Users\jafra\Documents\CURSOS_EXTRACURRICULARES\ProyectoHDP\ProyectoHDP\ProyectoHDP\bin\Debug\net6.0\itext.barcodes.dll
+C:\Users\jafra\Documents\CURSOS_EXTRACURRICULARES\ProyectoHDP\ProyectoHDP\ProyectoHDP\bin\Debug\net6.0\itext.bouncy-castle-connector.dll
+C:\Users\jafra\Documents\CURSOS_EXTRACURRICULARES\ProyectoHDP\ProyectoHDP\ProyectoHDP\bin\Debug\net6.0\itext.forms.dll
+C:\Users\jafra\Documents\CURSOS_EXTRACURRICULARES\ProyectoHDP\ProyectoHDP\ProyectoHDP\bin\Debug\net6.0\itext.io.dll
+C:\Users\jafra\Documents\CURSOS_EXTRACURRICULARES\ProyectoHDP\ProyectoHDP\ProyectoHDP\bin\Debug\net6.0\itext.kernel.dll
+C:\Users\jafra\Documents\CURSOS_EXTRACURRICULARES\ProyectoHDP\ProyectoHDP\ProyectoHDP\bin\Debug\net6.0\itext.layout.dll
+C:\Users\jafra\Documents\CURSOS_EXTRACURRICULARES\ProyectoHDP\ProyectoHDP\ProyectoHDP\bin\Debug\net6.0\itext.pdfa.dll
+C:\Users\jafra\Documents\CURSOS_EXTRACURRICULARES\ProyectoHDP\ProyectoHDP\ProyectoHDP\bin\Debug\net6.0\itext.sign.dll
+C:\Users\jafra\Documents\CURSOS_EXTRACURRICULARES\ProyectoHDP\ProyectoHDP\ProyectoHDP\bin\Debug\net6.0\itext.styledxmlparser.dll
+C:\Users\jafra\Documents\CURSOS_EXTRACURRICULARES\ProyectoHDP\ProyectoHDP\ProyectoHDP\bin\Debug\net6.0\itext.svg.dll
+C:\Users\jafra\Documents\CURSOS_EXTRACURRICULARES\ProyectoHDP\ProyectoHDP\ProyectoHDP\bin\Debug\net6.0\itext.commons.dll
+C:\Users\jafra\Documents\CURSOS_EXTRACURRICULARES\ProyectoHDP\ProyectoHDP\ProyectoHDP\bin\Debug\net6.0\itext.html2pdf.dll
+C:\Users\jafra\Documents\CURSOS_EXTRACURRICULARES\ProyectoHDP\ProyectoHDP\ProyectoHDP\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll

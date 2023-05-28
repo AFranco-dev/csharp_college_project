@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -26,6 +27,9 @@ namespace ProyectoHDP.Controllers
                           View(await _context.Empleados.ToListAsync()) :
                           Problem("Entity set 'ApplicationDbContext.Empleados'  is null.");
         }
+        //--------------------------LO QUE YO HE HECHO----------------------------------------------
+        //--------------------------LO QUE YO HE HECHO----------------------------------------------
+        //--------------------------LO QUE YO HE HECHO----------------------------------------------
         // GET: Empleados/ShowBuscarYearForm
         public async Task<IActionResult> ShowBuscarYearForm()
         {
@@ -49,6 +53,148 @@ namespace ProyectoHDP.Controllers
                           Problem("Entity set 'ApplicationDbContext.Empleados'  is null.");
         }
 
+        public IActionResult DownloadTextFile(int id)
+        {
+            var empleados = _context.Empleados.FirstOrDefault(m => m.iD == id);
+            if (empleados == null)
+            {
+                return NotFound();
+            }
+
+            // Generate the text content for the file using the model information
+            string fileContent = $"ID: {empleados.iD}\n" +
+                                 $"Nombre: {empleados.nombre}\n" +
+                                 $"Tipo de Contrato: {empleados.tipoContrato}\n" +
+                                 $"País: {empleados.pais}\n" +
+                                 $"Empresa: {empleados.empresa}\n" +
+                                 $"Salario: {empleados.salario}\n" +
+                                 $"Fecha de Contrato: {empleados.fechaContrato}\n" +
+                                 $"Fecha de Renuncia: {empleados.fechaRenuncia}\n" +
+                                 $"Fecha de Emisión: {empleados.fechaEmision}\n" +
+                                 $"Meses de Trabajo: {empleados.mesesTrabajo}";
+
+            byte[] fileBytes = Encoding.UTF8.GetBytes(fileContent);
+            string fileName = $"Empleado_{empleados.iD}.txt";
+
+            // Return the file as a download response
+            return File(fileBytes, "text/plain", fileName);
+        }
+
+        public IActionResult DownloadAllUsersTextFile()
+        {
+            var empleadosList = _context.Empleados.ToList();
+            if (empleadosList.Count == 0)
+            {
+                return NotFound();
+            }
+
+            // Generate the text content for the file
+            var fileContent = new StringBuilder();
+            foreach (var empleado in empleadosList)
+            {
+                fileContent.AppendLine($"ID: {empleado.iD}");
+                fileContent.AppendLine($"Nombre: {empleado.nombre}");
+                fileContent.AppendLine($"Tipo de Contrato: {empleado.tipoContrato}");
+                fileContent.AppendLine($"País: {empleado.pais}");
+                fileContent.AppendLine($"Empresa: {empleado.empresa}");
+                fileContent.AppendLine($"Salario: {empleado.salario}");
+                fileContent.AppendLine($"Fecha de Contrato: {empleado.fechaContrato}");
+                fileContent.AppendLine($"Fecha de Renuncia: {empleado.fechaRenuncia}");
+                fileContent.AppendLine($"Fecha de Emisión: {empleado.fechaEmision}");
+                fileContent.AppendLine($"Meses de Trabajo: {empleado.mesesTrabajo}");
+                fileContent.AppendLine();
+            }
+
+            byte[] fileBytes = Encoding.UTF8.GetBytes(fileContent.ToString());
+            string fileName = "AllUsers.txt";
+
+            // Return the file as a download response
+            return File(fileBytes, "text/plain", fileName);
+        }
+
+        public IActionResult DownloadAllUsersByEmpresaTextFile(string empresa)
+        {
+            var query = _context.Empleados.AsQueryable();
+
+            if (!string.IsNullOrEmpty(empresa))
+            {
+                query = query.Where(x => x.empresa.Contains(empresa));
+            }
+
+            var empleadosList = query.ToList();
+
+            if (empleadosList.Count == 0)
+            {
+                return NotFound();
+            }
+
+            // Generate the text content for the file
+            var fileContent = new StringBuilder();
+            foreach (var empleado in empleadosList)
+            {
+                fileContent.AppendLine($"ID: {empleado.iD}");
+                fileContent.AppendLine($"Nombre: {empleado.nombre}");
+                fileContent.AppendLine($"Tipo de Contrato: {empleado.tipoContrato}");
+                fileContent.AppendLine($"País: {empleado.pais}");
+                fileContent.AppendLine($"Empresa: {empleado.empresa}");
+                fileContent.AppendLine($"Salario: {empleado.salario}");
+                fileContent.AppendLine($"Fecha de Contrato: {empleado.fechaContrato}");
+                fileContent.AppendLine($"Fecha de Renuncia: {empleado.fechaRenuncia}");
+                fileContent.AppendLine($"Fecha de Emisión: {empleado.fechaEmision}");
+                fileContent.AppendLine($"Meses de Trabajo: {empleado.mesesTrabajo}");
+                fileContent.AppendLine();
+            }
+
+            byte[] fileBytes = Encoding.UTF8.GetBytes(fileContent.ToString());
+            string fileName = "AllUsers.txt";
+
+            // Return the file as a download response
+            return File(fileBytes, "text/plain", fileName);
+        }
+
+        public IActionResult DownloadAllUsersByYearTextFile(DateTime SearchYear)
+        {
+            var query = _context.Empleados.AsQueryable();
+
+            if (SearchYear != DateTime.MinValue)
+            {
+                query = query.Where(x => x.fechaEmision.Year == SearchYear.Year);
+            }
+
+            var empleadosList = query.ToList();
+
+            if (empleadosList.Count == 0)
+            {
+                return NotFound();
+            }
+
+            // Generate the text content for the file
+            var fileContent = new StringBuilder();
+            foreach (var empleado in empleadosList)
+            {
+                fileContent.AppendLine($"ID: {empleado.iD}");
+                fileContent.AppendLine($"Nombre: {empleado.nombre}");
+                fileContent.AppendLine($"Tipo de Contrato: {empleado.tipoContrato}");
+                fileContent.AppendLine($"País: {empleado.pais}");
+                fileContent.AppendLine($"Empresa: {empleado.empresa}");
+                fileContent.AppendLine($"Salario: {empleado.salario}");
+                fileContent.AppendLine($"Fecha de Contrato: {empleado.fechaContrato}");
+                fileContent.AppendLine($"Fecha de Renuncia: {empleado.fechaRenuncia}");
+                fileContent.AppendLine($"Fecha de Emisión: {empleado.fechaEmision}");
+                fileContent.AppendLine($"Meses de Trabajo: {empleado.mesesTrabajo}");
+                fileContent.AppendLine();
+            }
+
+            byte[] fileBytes = Encoding.UTF8.GetBytes(fileContent.ToString());
+            string fileName = "AllUsers.txt";
+
+            // Return the file as a download response
+            return File(fileBytes, "text/plain", fileName);
+        }
+
+        //--------------------------LO QUE YO HE HECHO----------------------------------------------
+        //--------------------------LO QUE YO HE HECHO----------------------------------------------
+        //--------------------------LO QUE YO HE HECHO----------------------------------------------
         // GET: Empleados/Details/5
         public async Task<IActionResult> Details(int? id)
         {

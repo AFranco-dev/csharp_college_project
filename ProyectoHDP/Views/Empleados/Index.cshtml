@@ -79,5 +79,26 @@
             </td>
         </tr>
 }
+        
+
     </tbody>
 </table>
+<div class="d-flex flex-column">
+    <a href="@Url.Action("DownloadAllUsersTextFile", "Empleados")" class="btn btn-primary mb-3">Download All Users</a>
+
+    <form action="/Empleados/DownloadAllUsersByEmpresaTextFile" method="get" class="mb-3">
+        <div class="form-group">
+            <label for="empresa">Compañia:</label>
+            <input type="text" name="empresa" id="empresa" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Descargar usuarios por compañia</button>
+    </form>
+
+    <form action="/Empleados/DownloadAllUsersByYearTextFile" method="get">
+        <div class="form-group">
+            <label for="SearchYear">Año:</label>
+            <input type="datetime-local" name="SearchYear" id="SearchYear" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Descargar usuarios por año</button>
+    </form>
+</div>
