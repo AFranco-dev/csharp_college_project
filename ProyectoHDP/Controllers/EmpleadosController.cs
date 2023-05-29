@@ -8,6 +8,14 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProyectoHDP.Data;
 using ProyectoHDP.Models;
+using iText.Html2pdf;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using System.IO;
+using System.Web;
+using iText.Kernel.Geom;
+//using IronPdf;
 
 namespace ProyectoHDP.Controllers
 {
@@ -191,6 +199,102 @@ namespace ProyectoHDP.Controllers
             // Return the file as a download response
             return File(fileBytes, "text/plain", fileName);
         }
+
+
+        public IActionResult GeneratePDF()
+        {
+            // Define your custom HTML string
+            string htmlString = "<html><body><h1>Hello, PDF!</h1></body></html>";
+
+            // Create a memory stream to hold the PDF document
+            MemoryStream stream = new MemoryStream();
+
+            // Create an iText7 PdfWriter
+            PdfWriter writer = new PdfWriter(stream);
+            iText.Kernel.Pdf.PdfDocument pdf = new iText.Kernel.Pdf.PdfDocument(writer);
+
+            // Create an iText7 ConverterProperties object
+            ConverterProperties properties = new ConverterProperties();
+
+            // Create an iText7 Document
+            Document document = new Document(pdf);
+
+            // Convert the HTML string to PDF and save it to the document
+            HtmlConverter.ConvertToPdf(htmlString, pdf, properties);
+
+            // Close the document and writer, which will flush the content to the stream
+            document.Close();
+            writer.Close();
+
+            // Create a new memory stream from the existing stream
+            MemoryStream newStream = new MemoryStream(stream.ToArray());
+
+            // Return the PDF file as a download
+            return File(newStream, "application/pdf", "custom.pdf");
+        }
+
+        //public IActionResult GeneratePDF()
+        //{
+        //    // Define your custom HTML string
+        //    string htmlString = "<html><body><h1>Hello, PDF!</h1></body></html>";
+
+        //    // Create a memory stream to hold the PDF document
+        //    MemoryStream stream = new MemoryStream();
+
+        //    // Create an iText7 PdfWriter
+        //    PdfWriter writer = new PdfWriter(stream);
+        //    iText.Kernel.Pdf.PdfDocument pdf = new iText.Kernel.Pdf.PdfDocument(writer);
+
+        //    // Create an iText7 ConverterProperties object
+        //    ConverterProperties properties = new ConverterProperties();
+
+        //    // Create an iText7 Document
+        //    Document document = new Document(pdf);
+
+        //    // Convert the HTML string to PDF and save it to the document
+        //    HtmlConverter.ConvertToPdf(htmlString, pdf, properties);
+
+        //    // Close the document and writer, which will flush the content to the stream
+        //    document.Close();
+        //    writer.Close();
+
+
+        //    // Return the PDF file as a download
+        //    return File(stream, "application/pdf", "custom.pdf");
+        //}
+
+
+
+        //        public ActionResult GeneratePDF()
+        //{
+        //    // Replace with the actual content from your view
+        //    string content = "<div>Your content goes here</div>";
+
+        //            // Create a memory stream to hold the PDF document
+        //            MemoryStream stream = new MemoryStream();
+
+        //        // Create an iText7 PdfWriter
+        //        PdfWriter writer = new PdfWriter(stream);
+        //        PdfDocument pdf = new PdfDocument(writer);
+
+        //        // Create an iText7 Document
+        //        Document document = new Document(pdf, PageSize.LETTER);
+
+        //            // Convert HTML content to PDF
+        //            HtmlConverter.ConvertToPdf(content, pdf);
+
+        //            // Close the document and writer
+        //            document.Close();
+        //        writer.Close();
+
+        //        // Save the PDF document to a byte array
+        //        byte[] pdfBytes = stream.ToArray();
+
+        //        // Return the PDF file as a download
+        //        return File(pdfBytes, "application/pdf", "document.pdf");
+
+        //}
+
 
         //--------------------------LO QUE YO HE HECHO----------------------------------------------
         //--------------------------LO QUE YO HE HECHO----------------------------------------------
