@@ -122,10 +122,10 @@
     </dl>
     <div>
         <form method="post" asp-action="DownloadTextFile" asp-route-id="@Model?.iD">
-            <button type="submit">Descargar archivo.txt</button>
+            <button class="btn btn-primary" type="submit">Descargar archivo.txt</button>
         </form>
         <form method="post" asp-action="GeneratePDF" asp-route-id="@Model?.iD">
-            <button type="submit">Descargar PDF</button>
+            <button class="btn btn-primary" type="submit">Descargar PDF</button>
         </form>
     </div>
 </div>

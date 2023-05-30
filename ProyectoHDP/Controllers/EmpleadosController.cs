@@ -16,6 +16,7 @@ using System.IO;
 using System.Web;
 using iText.Kernel.Geom;
 using static iText.StyledXmlParser.Jsoup.Select.Evaluator;
+using Microsoft.AspNetCore.Authorization;
 //using IronPdf;
 
 namespace ProyectoHDP.Controllers
@@ -30,6 +31,7 @@ namespace ProyectoHDP.Controllers
         }
 
         // GET: Empleados
+        [Authorize]
         public async Task<IActionResult> Index()
         {
               return _context.Empleados != null ? 
@@ -359,6 +361,7 @@ namespace ProyectoHDP.Controllers
         //--------------------------LO QUE YO HE HECHO----------------------------------------------
         //--------------------------LO QUE YO HE HECHO----------------------------------------------
         // GET: Empleados/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Empleados == null)
@@ -377,6 +380,7 @@ namespace ProyectoHDP.Controllers
         }
 
         // GET: Empleados/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -385,6 +389,7 @@ namespace ProyectoHDP.Controllers
         // POST: Empleados/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("iD,nombre,tipoContrato,pais,empresa,salario,fechaContrato,fechaRenuncia,fechaEmision,mesesTrabajo,cargo,DUI,nISSS,direccion,nTelefono,correo,direccionEmpresa,telefonoEmpresa,correoEmpresa")] Empleados empleados)
@@ -399,6 +404,7 @@ namespace ProyectoHDP.Controllers
         }
 
         // GET: Empleados/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Empleados == null)
@@ -417,6 +423,7 @@ namespace ProyectoHDP.Controllers
         // POST: Empleados/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("iD,nombre,tipoContrato,pais,empresa,salario,fechaContrato,fechaRenuncia,fechaEmision,mesesTrabajo,cargo,DUI,nISSS,direccion,nTelefono,correo,direccionEmpresa,telefonoEmpresa,correoEmpresa")] Empleados empleados)
@@ -450,6 +457,7 @@ namespace ProyectoHDP.Controllers
         }
 
         // GET: Empleados/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Empleados == null)
@@ -468,6 +476,7 @@ namespace ProyectoHDP.Controllers
         }
 
         // POST: Empleados/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
