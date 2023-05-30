@@ -15,6 +15,7 @@ using iText.Layout.Element;
 using System.IO;
 using System.Web;
 using iText.Kernel.Geom;
+using static iText.StyledXmlParser.Jsoup.Select.Evaluator;
 //using IronPdf;
 
 namespace ProyectoHDP.Controllers
@@ -70,16 +71,25 @@ namespace ProyectoHDP.Controllers
             }
 
             // Generate the text content for the file using the model information
-            string fileContent = $"ID: {empleados.iD}\n" +
-                                 $"Nombre: {empleados.nombre}\n" +
-                                 $"Tipo de Contrato: {empleados.tipoContrato}\n" +
-                                 $"País: {empleados.pais}\n" +
-                                 $"Empresa: {empleados.empresa}\n" +
-                                 $"Salario: {empleados.salario}\n" +
-                                 $"Fecha de Contrato: {empleados.fechaContrato}\n" +
-                                 $"Fecha de Renuncia: {empleados.fechaRenuncia}\n" +
-                                 $"Fecha de Emisión: {empleados.fechaEmision}\n" +
-                                 $"Meses de Trabajo: {empleados.mesesTrabajo}";
+            string fileContent =    $"ID: {empleados.iD}\n" +
+                                    $"Nombre: {empleados.nombre}\n" +
+                                    $"Tipo de Contrato: {empleados.tipoContrato}\n" +
+                                    $"País: {empleados.pais}\n" +
+                                    $"Empresa: {empleados.empresa}\n" +
+                                    $"Salario: {empleados.salario}\n" +
+                                    $"Fecha de Contrato: {empleados.fechaContrato}\n" +
+                                    $"Fecha de Renuncia: {empleados.fechaRenuncia}\n" +
+                                    $"Fecha de Emisión: {empleados.fechaEmision}\n" +
+                                    $"Meses de Trabajo: {empleados.mesesTrabajo}\n" +
+                                    $"Cargo: {empleados.cargo}\n" +
+                                    $"DUI: {empleados.DUI}\n" +
+                                    $"Número de ISSS: {empleados.nISSS}\n" +
+                                    $"Dirección: {empleados.direccion}\n" +
+                                    $"Teléfono: {empleados.nTelefono}\n" +
+                                    $"Correo Electrónico: {empleados.correo}\n" +
+                                    $"Dirección de la Empresa: {empleados.direccionEmpresa}\n" +
+                                    $"Teléfono de la Empresa: {empleados.telefonoEmpresa}\n" +
+                                    $"Correo Electrónico de la Empresa: {empleados.correoEmpresa}";
 
             byte[] fileBytes = Encoding.UTF8.GetBytes(fileContent);
             string fileName = $"Empleado_{empleados.iD}.txt";
@@ -110,6 +120,15 @@ namespace ProyectoHDP.Controllers
                 fileContent.AppendLine($"Fecha de Renuncia: {empleado.fechaRenuncia}");
                 fileContent.AppendLine($"Fecha de Emisión: {empleado.fechaEmision}");
                 fileContent.AppendLine($"Meses de Trabajo: {empleado.mesesTrabajo}");
+                fileContent.AppendLine($"Cargo: {empleado.cargo}");
+                fileContent.AppendLine($"DUI: {empleado.DUI}");
+                fileContent.AppendLine($"Número de ISSS: {empleado.nISSS}");
+                fileContent.AppendLine($"Dirección: {empleado.direccion}");
+                fileContent.AppendLine($"Teléfono: {empleado.nTelefono}");
+                fileContent.AppendLine($"Correo Electrónico: {empleado.correo}");
+                fileContent.AppendLine($"Dirección de la Empresa: {empleado.direccionEmpresa}");
+                fileContent.AppendLine($"Teléfono de la Empresa: {empleado.telefonoEmpresa}");
+                fileContent.AppendLine($"Correo Electrónico de la Empresa: {empleado.correoEmpresa}");
                 fileContent.AppendLine();
             }
 
@@ -150,6 +169,15 @@ namespace ProyectoHDP.Controllers
                 fileContent.AppendLine($"Fecha de Renuncia: {empleado.fechaRenuncia}");
                 fileContent.AppendLine($"Fecha de Emisión: {empleado.fechaEmision}");
                 fileContent.AppendLine($"Meses de Trabajo: {empleado.mesesTrabajo}");
+                fileContent.AppendLine($"Cargo: {empleado.cargo}");
+                fileContent.AppendLine($"DUI: {empleado.DUI}");
+                fileContent.AppendLine($"Número de ISSS: {empleado.nISSS}");
+                fileContent.AppendLine($"Dirección: {empleado.direccion}");
+                fileContent.AppendLine($"Teléfono: {empleado.nTelefono}");
+                fileContent.AppendLine($"Correo Electrónico: {empleado.correo}");
+                fileContent.AppendLine($"Dirección de la Empresa: {empleado.direccionEmpresa}");
+                fileContent.AppendLine($"Teléfono de la Empresa: {empleado.telefonoEmpresa}");
+                fileContent.AppendLine($"Correo Electrónico de la Empresa: {empleado.correoEmpresa}");
                 fileContent.AppendLine();
             }
 
@@ -190,6 +218,15 @@ namespace ProyectoHDP.Controllers
                 fileContent.AppendLine($"Fecha de Renuncia: {empleado.fechaRenuncia}");
                 fileContent.AppendLine($"Fecha de Emisión: {empleado.fechaEmision}");
                 fileContent.AppendLine($"Meses de Trabajo: {empleado.mesesTrabajo}");
+                fileContent.AppendLine($"Cargo: {empleado.cargo}");
+                fileContent.AppendLine($"DUI: {empleado.DUI}");
+                fileContent.AppendLine($"Número de ISSS: {empleado.nISSS}");
+                fileContent.AppendLine($"Dirección: {empleado.direccion}");
+                fileContent.AppendLine($"Teléfono: {empleado.nTelefono}");
+                fileContent.AppendLine($"Correo Electrónico: {empleado.correo}");
+                fileContent.AppendLine($"Dirección de la Empresa: {empleado.direccionEmpresa}");
+                fileContent.AppendLine($"Teléfono de la Empresa: {empleado.telefonoEmpresa}");
+                fileContent.AppendLine($"Correo Electrónico de la Empresa: {empleado.correoEmpresa}");
                 fileContent.AppendLine();
             }
 
@@ -201,10 +238,18 @@ namespace ProyectoHDP.Controllers
         }
 
 
-        public IActionResult GeneratePDF()
+        public IActionResult GeneratePDF(int id)
         {
+            var empleados = _context.Empleados.FirstOrDefault(m => m.iD == id);
+            if (empleados == null)
+            {
+                return NotFound();
+            }
             // Define your custom HTML string
-            string htmlString = "<html><body><h1>Hello, PDF!</h1></body></html>";
+            var fileContent = new StringBuilder();
+            fileContent.Append("<html>\r\n<body>");
+            fileContent.Append("</body>\r\n</html>");
+            string htmlString = fileContent.ToString();
 
             // Create a memory stream to hold the PDF document
             MemoryStream stream = new MemoryStream();
@@ -232,69 +277,6 @@ namespace ProyectoHDP.Controllers
             // Return the PDF file as a download
             return File(newStream, "application/pdf", "custom.pdf");
         }
-
-        //public IActionResult GeneratePDF()
-        //{
-        //    // Define your custom HTML string
-        //    string htmlString = "<html><body><h1>Hello, PDF!</h1></body></html>";
-
-        //    // Create a memory stream to hold the PDF document
-        //    MemoryStream stream = new MemoryStream();
-
-        //    // Create an iText7 PdfWriter
-        //    PdfWriter writer = new PdfWriter(stream);
-        //    iText.Kernel.Pdf.PdfDocument pdf = new iText.Kernel.Pdf.PdfDocument(writer);
-
-        //    // Create an iText7 ConverterProperties object
-        //    ConverterProperties properties = new ConverterProperties();
-
-        //    // Create an iText7 Document
-        //    Document document = new Document(pdf);
-
-        //    // Convert the HTML string to PDF and save it to the document
-        //    HtmlConverter.ConvertToPdf(htmlString, pdf, properties);
-
-        //    // Close the document and writer, which will flush the content to the stream
-        //    document.Close();
-        //    writer.Close();
-
-
-        //    // Return the PDF file as a download
-        //    return File(stream, "application/pdf", "custom.pdf");
-        //}
-
-
-
-        //        public ActionResult GeneratePDF()
-        //{
-        //    // Replace with the actual content from your view
-        //    string content = "<div>Your content goes here</div>";
-
-        //            // Create a memory stream to hold the PDF document
-        //            MemoryStream stream = new MemoryStream();
-
-        //        // Create an iText7 PdfWriter
-        //        PdfWriter writer = new PdfWriter(stream);
-        //        PdfDocument pdf = new PdfDocument(writer);
-
-        //        // Create an iText7 Document
-        //        Document document = new Document(pdf, PageSize.LETTER);
-
-        //            // Convert HTML content to PDF
-        //            HtmlConverter.ConvertToPdf(content, pdf);
-
-        //            // Close the document and writer
-        //            document.Close();
-        //        writer.Close();
-
-        //        // Save the PDF document to a byte array
-        //        byte[] pdfBytes = stream.ToArray();
-
-        //        // Return the PDF file as a download
-        //        return File(pdfBytes, "application/pdf", "document.pdf");
-
-        //}
-
 
         //--------------------------LO QUE YO HE HECHO----------------------------------------------
         //--------------------------LO QUE YO HE HECHO----------------------------------------------
