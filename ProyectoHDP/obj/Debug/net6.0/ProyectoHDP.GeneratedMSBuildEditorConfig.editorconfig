@@ -20,6 +20,26 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/jafra/Documents/CURSOS_EXTRACURRICULARES/ProyectoHDP/ProyectoHDP/ProyectoHDP/Views/Empleados1/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9zMVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jafra/Documents/CURSOS_EXTRACURRICULARES/ProyectoHDP/ProyectoHDP/ProyectoHDP/Views/Empleados1/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9zMVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jafra/Documents/CURSOS_EXTRACURRICULARES/ProyectoHDP/ProyectoHDP/ProyectoHDP/Views/Empleados1/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9zMVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jafra/Documents/CURSOS_EXTRACURRICULARES/ProyectoHDP/ProyectoHDP/ProyectoHDP/Views/Empleados1/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9zMVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jafra/Documents/CURSOS_EXTRACURRICULARES/ProyectoHDP/ProyectoHDP/ProyectoHDP/Views/Empleados1/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9zMVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/jafra/Documents/CURSOS_EXTRACURRICULARES/ProyectoHDP/ProyectoHDP/ProyectoHDP/Views/Empleados/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
